@@ -13,6 +13,7 @@ import androidx.appcompat.R
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.widget.TextViewCompat
+import com.alwin.util.sp2px
 
 /**
  * Title居中的Toolbar

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.alwin.android.R
+import com.alwin.util.sp2px
 
 /**
  * 首页的底部栏Item：icon+text
@@ -49,7 +50,10 @@ class BottomItemView : RelativeLayout {
         if (textRes == 0) {
             return
         }
-        textView.text = resources.getText(textRes)
+        textView.apply {
+            text = resources.getText(textRes)
+            textSize = 13f
+        }
         invalidate()
     }
 }
