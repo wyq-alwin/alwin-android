@@ -8,6 +8,8 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.fragment.app.FragmentActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 object SystemUtil {
 
@@ -50,6 +52,13 @@ object SystemUtil {
             }
         }
         return statusBarHeight
+    }
+
+    /** Long时间戳转日期字符串 */
+    fun long2String(timeStamp: Long): String {
+        val date =  Date(timeStamp);
+        val sdf =  SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return sdf.format(date);
     }
 }
 

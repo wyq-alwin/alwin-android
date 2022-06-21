@@ -7,7 +7,7 @@
     <com.alwin.widget.AToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:background="@color/theme_normal"
         android:elevation="0dp"
         android:textAlignment="center"
@@ -17,15 +17,14 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <!-- 底部栏   -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:background="@color/theme_normal"
         app:layout_constraintBottom_toBottomOf="parent">
 
