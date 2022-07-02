@@ -1,5 +1,7 @@
 package com.alwin.main
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -47,7 +49,15 @@ class MainActivity : AppCompatActivity() {
             binding.pager.currentItem = OFFICIAL_INDEX
         }
         binding.me.setOnClickListener {
-            binding.pager.currentItem = MINE_INDEX
+            // binding.pager.currentItem = MINE_INDEX
+            try {
+                val intent = Intent()
+                intent.action = "android.intent.action.VIEW"
+                intent.data = Uri.parse("www.baidu.com")
+                it.context.startActivity(intent)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.alwin.home.HomeFragment
 import com.alwin.main.MainActivity.Companion.HOME_INDEX
 import com.alwin.main.MainActivity.Companion.OFFICIAL_INDEX
-import com.alwin.mine.MineFragment
+import com.alwin.me.MeFragment
 import com.alwin.official.OfficialFragment
 
 class MainFragmentAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
@@ -17,7 +17,7 @@ class MainFragmentAdapter(activity: FragmentActivity) : FragmentStateAdapter(act
         return when(position){
             HOME_INDEX -> HomeFragment()
             OFFICIAL_INDEX -> OfficialFragment()
-            else -> MineFragment()
+            else -> MeFragment()
         }
     }
 }

@@ -1,17 +1,22 @@
 package com.alwin.util
 
+import android.app.Application
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
+import android.os.Handler
+import android.os.Looper
 import android.util.TypedValue
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.fragment.app.FragmentActivity
+import com.alwin.App
 import java.text.SimpleDateFormat
 import java.util.*
 
 object SystemUtil {
+    lateinit var application: Application
 
     /**
      * 设置沉浸式状态栏

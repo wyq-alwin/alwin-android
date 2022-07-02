@@ -15,7 +15,7 @@ import com.google.android.material.tabs.TabLayoutMediator
  */
 class HomeFragment : Fragment() {
 
-    private val titles = arrayOf("首页", "待定")
+    private val titles = arrayOf("首页", "每日一问")
     private var binding: FragmentMainBinding? = null
     private fun binding() = binding!!
 

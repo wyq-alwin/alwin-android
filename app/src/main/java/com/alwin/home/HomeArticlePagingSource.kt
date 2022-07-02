@@ -5,22 +5,22 @@ import androidx.paging.PagingState
 import com.alwin.api.HomeApi
 import com.alwin.model.Article
 
-class HomeFlowArticlePagingSource(private val homeApi: HomeApi) :
+class HomeArticlePagingSource(private val homeApi: HomeApi) :
     PagingSource<Int, Article>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         try {
             val pageNum = params.key ?: 0
-            val data = homeApi.getHomeArticles(pageNum).data.datas
+            val response = homeApi.getHomeArticles(pageNum).data
             val preKey = if (pageNum > 1) pageNum.minus(1) else null
-            // TODO 为什么一直请求网络
-            val nextKey = if (pageNum > 5) {
-                null
-            } else {
+            // todo 一直在请求网络？？？
+            val nextKey = if (response.hasMore() && pageNum < 5) {
                 pageNum.plus(1)
+            } else {
+               null
             }
             return LoadResult.Page(
-                data = data,
+                data = response.datas,
                 prevKey = preKey,
                 nextKey = nextKey
             )
@@ -32,9 +32,6 @@ class HomeFlowArticlePagingSource(private val homeApi: HomeApi) :
     }
 
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
-        return state.anchorPosition?.let { anchorPosition ->
-            val anchorPage = state.closestPageToPosition(anchorPosition)
-            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
-        }
+        return null
     }
 }

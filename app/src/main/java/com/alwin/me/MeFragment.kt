@@ -1,15 +1,15 @@
-package com.alwin.official
+package com.alwin.me
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.alwin.android.databinding.FragmentOfficialBinding
+import com.alwin.android.databinding.FragmentMeBinding
 
-class OfficialFragment: Fragment() {
+class MeFragment: Fragment() {
 
-    private var binding: FragmentOfficialBinding? = null
+    private var binding: FragmentMeBinding? = null
     private fun binding() = binding!!
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class OfficialFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOfficialBinding.inflate(inflater, container, false)
+        binding = FragmentMeBinding.inflate(inflater, container, false)
         return binding().root
     }
 }

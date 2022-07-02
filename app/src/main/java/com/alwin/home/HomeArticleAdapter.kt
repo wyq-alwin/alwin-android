@@ -9,13 +9,13 @@ import com.alwin.android.databinding.ItemHomeArticleBinding
 import com.alwin.home.viewholder.ArticleViewHolder
 import com.alwin.model.Article
 
-class HomeFlowArticleAdapter(diffCallback: DiffUtil.ItemCallback<Article> = ArticleDiff()) :
-    PagingDataAdapter<Article, RecyclerView.ViewHolder>(diffCallback) {
+class HomeArticleAdapter(diffCallback: DiffUtil.ItemCallback<Article> = ArticleDiff()) :
+    PagingDataAdapter<Article, ArticleViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerView.ViewHolder {
+    ): ArticleViewHolder {
         val binding =
             ItemHomeArticleBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -25,7 +25,7 @@ class HomeFlowArticleAdapter(diffCallback: DiffUtil.ItemCallback<Article> = Arti
         return ArticleViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         (holder as? ArticleViewHolder)?.bind(getItem(position))
     }
 
