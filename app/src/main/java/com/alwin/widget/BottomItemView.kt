@@ -3,13 +3,11 @@ package com.alwin.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.alwin.android.R
-import com.alwin.util.sp2px
 
 /**
  * 首页的底部栏Item：icon+text
@@ -38,7 +36,7 @@ class BottomItemView : RelativeLayout {
         }
     }
 
-    private fun setIcon(@DrawableRes iconRes: Int) {
+    fun setIcon(@DrawableRes iconRes: Int) {
         if (iconRes == 0) {
             return
         }
@@ -46,7 +44,7 @@ class BottomItemView : RelativeLayout {
         invalidate()
     }
 
-   private fun setText(@StringRes textRes: Int) {
+    fun setText(@StringRes textRes: Int) {
         if (textRes == 0) {
             return
         }

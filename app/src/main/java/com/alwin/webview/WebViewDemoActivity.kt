@@ -1,4 +1,4 @@
-package github.leavesczy.robustwebview
+package com.alwin.webview
 
 import android.os.Bundle
 import android.view.View
@@ -10,8 +10,8 @@ import com.alwin.android.R
 import com.alwin.webview.base.RobustWebView
 import com.alwin.webview.base.WebViewCacheHolder
 import com.alwin.webview.base.WebViewListener
-import github.leavesczy.robustwebview.utils.showToast
-
+import com.alwin.webview.utils.showToast
+import com.alwin.widget.AToolbar
 
 class WebViewDemoActivity : AppCompatActivity() {
 
@@ -42,11 +42,10 @@ class WebViewDemoActivity : AppCompatActivity() {
         }
 
         override fun onReceivedTitle(webView: RobustWebView, title: String) {
-            tvTitle.text = title
+            // tvTitle.title = title
         }
 
         override fun onPageFinished(webView: RobustWebView, url: String) {
-
         }
     }
 
@@ -105,5 +104,4 @@ class WebViewDemoActivity : AppCompatActivity() {
         super.onDestroy()
         WebViewCacheHolder.prepareWebView()
     }
-
 }

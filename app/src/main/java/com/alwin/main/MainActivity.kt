@@ -5,11 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.alwin.android.R
 import com.alwin.android.databinding.ActivityMainBinding
+import com.alwin.lib.Binding
+import com.alwin.lib_annotation.BindView
 import com.alwin.util.SystemUtil
-import dagger.hilt.android.AndroidEntryPoint
+import com.alwin.widget.AToolbar
+import com.alwin.widget.BottomItemView
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -19,6 +22,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
+
+    @BindView(R.id.toolbar)
+    lateinit var toolbar: AToolbar
+
+    @BindView(R.id.home)
+    lateinit var homeItem: BottomItemView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +48,14 @@ class MainActivity : AppCompatActivity() {
             )
             it.layoutParams = params
         }
+
+        Binding.binding(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // toolbar.title = "apt"
+        // homeItem.setText(R.string.me)
     }
 
     private fun setClickEvents(){

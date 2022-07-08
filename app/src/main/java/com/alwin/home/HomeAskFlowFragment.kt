@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,13 +23,11 @@ import javax.inject.Inject
 /**
  * 只请求一次数据
  */
-@AndroidEntryPoint
 class HomeAskFlowFragment : Fragment() {
 
     private var binding: FragmentHomeAskFlowBinding? = null
 
-    @Inject
-    lateinit var homeFlowViewModel: HomeFlowViewModel
+    private val homeFlowViewModel: HomeFlowViewModel by activityViewModels()
 
     private fun binding() = binding!!
 

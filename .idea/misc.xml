@@ -11,6 +11,8 @@
         <entry key="app/src/main/res/drawable/icon_home.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/menu-48px.xml" value="0.188" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_web.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/activity_web_demo.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_web_view.xml" value="0.2536231884057971" />
         <entry key="app/src/main/res/layout/fragment_home_ask_flow.xml" value="0.31476449275362317" />
         <entry key="app/src/main/res/layout/fragment_home_flow.xml" value="0.3125" />
@@ -26,5 +28,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK" />
 </project>

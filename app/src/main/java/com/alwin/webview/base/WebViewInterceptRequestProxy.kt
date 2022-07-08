@@ -5,7 +5,7 @@ import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse
-import github.leavesczy.robustwebview.utils.log
+import com.alwin.webview.utils.log
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

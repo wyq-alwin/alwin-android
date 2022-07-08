@@ -12,6 +12,7 @@ import com.alwin.model.ApiResponse
 import com.alwin.model.Article
 import com.alwin.model.BannerModel
 import com.alwin.model.PagerResponse
+import com.alwin.module.NetWorkModule
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,8 +21,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-@ActivityRetainedScoped
-class HomeFlowViewModel @Inject constructor(private val homeApi: HomeApi) : ViewModel() {
+class HomeFlowViewModel : ViewModel() {
+    private val homeApi: HomeApi = NetWorkModule.provideHomeApi()
     val bannerModel = MutableLiveData<List<BannerModel>>()
     val askFlowModel = MutableLiveData<List<Article>>()
 

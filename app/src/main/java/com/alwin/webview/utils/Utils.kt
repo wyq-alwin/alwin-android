@@ -1,4 +1,4 @@
-package github.leavesczy.robustwebview.utils
+package com.alwin.webview.utils
 
 import android.os.Build
 import android.util.Log
@@ -6,15 +6,8 @@ import android.view.View
 import android.view.ViewParent
 import android.widget.Toast
 import com.alwin.util.SystemUtil
-import dagger.hilt.android.qualifiers.ApplicationContext
 import java.lang.reflect.Method
 
-/**
- * @Author: leavesCZY
- * @Date: 2021/9/20 0:11
- * @Desc:
- * @Github：https://github.com/leavesCZY
- */
 fun log(log: Any?) {
     Log.e("RobustWebView-" + Thread.currentThread().name, log.toString())
 }

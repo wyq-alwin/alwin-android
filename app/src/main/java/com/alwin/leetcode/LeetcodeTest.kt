@@ -1,14 +1,33 @@
 package com.alwin.leetcode
 
+class Node(var `val`: Int) {
+    var left: Node? = null
+    var right: Node? = null
+    var next: Node? = null
+}
+
+class ListNode(var `val`: Int) {
+    var next: ListNode? = null
+}
+
+
+
+fun main() {
+}
+
 class Solution {
-    // you need treat n as an unsigned value
-    fun hammingWeight(n: Int): Int {
-        var result = 0
-        var n = n
-        while (n != 0) {
-            result++
-            n = n.and(n - 1)
+    fun replaceWords(dictionary: List<String>, sentence: String): String {
+        val sb = StringBuilder()
+        dictionary.sortedBy { it.length }
+        sentence.split(" ").forEach {
+            for (root in dictionary){
+                if (it.startsWith(root)){
+                    sb.append(root).append(' ')
+                    return@forEach
+                }
+            }
+            sb.append(it).append(' ')
         }
-        return result
+        return sb.deleteCharAt(sb.lastIndex).toString()
     }
 }

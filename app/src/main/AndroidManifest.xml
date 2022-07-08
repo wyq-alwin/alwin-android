@@ -3,7 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.alwin.android">
 
+<!--    <uses-permission android:name="android.permission.INTERNET" />-->
+<!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
+
+    <!--TopOn SDK通用 必要权限-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--非中国区SDK必要权限-->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+    <!--可选权限，申请后用于防作弊功能以及有助于广告平台投放广告-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:name="com.alwin.App"
@@ -16,6 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alwinandroid"
         tools:targetApi="31">
+
         <activity
             android:name="com.alwin.main.MainActivity"
             android:exported="true"
@@ -26,6 +39,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.alwin.webview.WebActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.alwin.webview.WebViewDemoActivity"/>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <!-- source file: nonchina_jcenter/network_sdk/admob/20.6.0/AndroidManifest.xml -->
+        <!--google-->
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
     </application>
 
 </manifest>

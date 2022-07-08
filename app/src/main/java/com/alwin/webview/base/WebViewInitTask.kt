@@ -1,13 +1,11 @@
-package github.leavesczy.robustwebview.base
+package com.alwin.webview.base
 
 import android.app.Application
 import android.content.Context
-import com.alwin.webview.base.WebViewCacheHolder
-import com.alwin.webview.base.WebViewInterceptRequestProxy
 import com.tencent.smtt.export.external.TbsCoreSettings
 import com.tencent.smtt.sdk.QbSdk
-import github.leavesczy.robustwebview.utils.log
-import github.leavesczy.robustwebview.utils.showToast
+import com.alwin.webview.utils.log
+import com.alwin.webview.utils.showToast
 
 object WebViewInitTask {
 

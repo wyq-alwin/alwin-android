@@ -1,8 +1,8 @@
 package com.alwin.webview
 
 import android.webkit.JavascriptInterface
-import github.leavesczy.robustwebview.utils.log
-import github.leavesczy.robustwebview.utils.showToast
+import com.alwin.webview.utils.log
+import com.alwin.webview.utils.showToast
 
 class JsInterface {
 

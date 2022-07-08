@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.MutableContextWrapper
 import android.os.Looper
-import github.leavesczy.robustwebview.utils.log
+import com.alwin.webview.utils.log
 import java.util.*
 
 object WebViewCacheHolder {

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,17 +16,13 @@ import com.alwin.util.dp2px
 import com.alwin.widget.ImageAdapter
 import com.alwin.widget.SpacesItemDecoration
 import com.youth.banner.indicator.CircleIndicator
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import javax.inject.Inject
 
-@AndroidEntryPoint
 class HomeFlowFragment : Fragment() {
 
     private var binding: FragmentHomeFlowBinding? = null
 
-    @Inject
-    lateinit var homeFlowViewModel: HomeFlowViewModel
+    private val homeFlowViewModel: HomeFlowViewModel by activityViewModels()
 
     private val homeFlowAdapter = HomeArticleAdapter()
     private val bannerAdapter = ImageAdapter()

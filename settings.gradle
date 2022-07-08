@@ -10,7 +10,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        maven { url 'https://nexus.bilibili.co/content/groups/public/' }
     }
 }
 rootProject.name = "alwin-android"
 include ':app'
+include ':lib-refection'
+include ':lib'
+include ':lib-processor'
+include ':lib-annotation'

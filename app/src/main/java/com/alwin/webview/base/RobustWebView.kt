@@ -10,7 +10,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.tencent.smtt.export.external.interfaces.*
 import com.tencent.smtt.sdk.*
 import com.alwin.webview.JsInterface
-import github.leavesczy.robustwebview.utils.log
+import com.alwin.webview.utils.log
 import java.io.File
 
 interface WebViewListener {
