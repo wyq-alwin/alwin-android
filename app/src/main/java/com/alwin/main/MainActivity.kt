@@ -1,33 +1,20 @@
 package com.alwin.main
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.alwin.android.R
 import com.alwin.android.databinding.ActivityMainBinding
-import com.alwin.lib.Binding
-import com.alwin.lib_annotation.BindView
 import com.alwin.util.SystemUtil
-import com.alwin.widget.AToolbar
-import com.alwin.widget.BottomItemView
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         const val HOME_INDEX = 0
         const val OFFICIAL_INDEX = 1
-        const val MINE_INDEX = 2
+        const val ME_INDEX = 2
     }
 
     private lateinit var binding: ActivityMainBinding
-
-    @BindView(R.id.toolbar)
-    lateinit var toolbar: AToolbar
-
-    @BindView(R.id.home)
-    lateinit var homeItem: BottomItemView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             it.layoutParams = params
         }
 
-        Binding.binding(this)
     }
 
     override fun onResume() {
@@ -66,15 +52,8 @@ class MainActivity : AppCompatActivity() {
             binding.pager.currentItem = OFFICIAL_INDEX
         }
         binding.me.setOnClickListener {
-            // binding.pager.currentItem = MINE_INDEX
-            try {
-                val intent = Intent()
-                intent.action = "android.intent.action.VIEW"
-                intent.data = Uri.parse("www.baidu.com")
-                it.context.startActivity(intent)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+            binding.pager.currentItem = ME_INDEX
         }
     }
+
 }

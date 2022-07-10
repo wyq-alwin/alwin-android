@@ -1,8 +1,6 @@
 package com.alwin.webview.base
 
 import android.app.Application
-import com.chuckerteam.chucker.api.ChuckerCollector
-import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.tencent.smtt.export.external.interfaces.WebResourceRequest
 import com.tencent.smtt.export.external.interfaces.WebResourceResponse
 import com.alwin.webview.utils.log
@@ -24,18 +22,19 @@ object WebViewInterceptRequestProxy {
         OkHttpClient.Builder().cache(Cache(webViewResourceCacheDir, 600L * 1024 * 1024))
             .followRedirects(false)
             .followSslRedirects(false)
-            .addNetworkInterceptor(getChuckerInterceptor(application = application))
+            // .addNetworkInterceptor(getChuckerInterceptor(application = application))
             .addNetworkInterceptor(getWebViewCacheInterceptor())
             .build()
     }
 
-    private fun getChuckerInterceptor(application: Application): Interceptor {
-        return ChuckerInterceptor.Builder(application)
-            .collector(ChuckerCollector(application))
-            .maxContentLength(250000L)
-            .alwaysReadResponseBody(true)
-            .build()
-    }
+    // private fun getChuckerInterceptor(application: Application): Interceptor {
+    //     return ChuckerInterceptor.Builder(application)
+    //         .collector(ChuckerCollector(application))
+    //         .maxContentLength(250000L)
+    //         .alwaysReadResponseBody(true)
+    //         .build()
+
+    // }
 
     private fun getWebViewCacheInterceptor(): Interceptor {
         return Interceptor { chain ->

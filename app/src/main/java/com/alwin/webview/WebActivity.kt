@@ -19,27 +19,19 @@ class WebActivity : AppCompatActivity() {
         findViewById<ViewGroup>(R.id.webViewContainer)
     }
 
-    private val tvTitle by lazy {
-        findViewById<TextView>(R.id.tvTitle)
-    }
-
-    private val tvProgress by lazy {
-        findViewById<TextView>(R.id.tvProgress)
-    }
-
-    private val toolbar by lazy {
-        findViewById<AToolbar>(R.id.toolbar)
-    }
+    // private val toolbar by lazy {
+    //     findViewById<AToolbar>(R.id.toolbar)
+    // }
 
     private lateinit var webView: RobustWebView
 
     private val webViewListener = object : WebViewListener {
         override fun onProgressChanged(webView: RobustWebView, progress: Int) {
-            tvProgress.text = progress.toString()
+            // tvProgress.text = progress.toString()
         }
 
         override fun onReceivedTitle(webView: RobustWebView, title: String) {
-            toolbar.title = title
+            // toolbar.title = title
         }
 
         override fun onPageFinished(webView: RobustWebView, url: String) {
@@ -59,9 +51,6 @@ class WebActivity : AppCompatActivity() {
         )
         webView.loadUrl(intent?.getStringExtra("web_uri"))
         // toolbar.navigationIcon = resources.getDrawable(R.drawable.ic_launcher_background)
-        findViewById<View>(R.id.tvBack).setOnClickListener {
-            onBackPressed()
-        }
     }
 
     override fun onBackPressed() {

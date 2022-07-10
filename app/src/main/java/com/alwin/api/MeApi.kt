@@ -4,5 +4,6 @@ import com.alwin.constant.ApiConstant
 
 
 
-interface MineApi {
+interface MeApi {
+
 }

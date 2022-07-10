@@ -1,7 +1,6 @@
 package com.alwin
 
 import android.app.Application
-import android.util.Log
 import com.alwin.util.SystemUtil
 import com.facebook.drawee.backends.pipeline.Fresco
 
@@ -11,6 +10,7 @@ class App: Application() {
         super.onCreate()
         SystemUtil.application = this
         Fresco.initialize(this)
+
 
 //         ATSDK.setNetworkLogDebug(true) //SDK日志功能，集成测试阶段建议开启，上线前必须关闭
 //

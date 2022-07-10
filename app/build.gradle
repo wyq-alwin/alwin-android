@@ -16,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationIdSuffix 'alwin'
+        versionNameSuffix 'alwin'
+        signingConfig signingConfigs.debug
     }
 
     buildTypes {
@@ -23,6 +26,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                 'proguard-rules.pro'
+        }
+        internal{
+
         }
     }
     compileOptions {
@@ -93,8 +99,8 @@ dependencies {
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 
-    implementation project(path: ':lib')
-    kapt project(path: ':lib-processor')
+//    implementation project(path: ':lib')
+//    kapt project(path: ':lib-processor')
 
     api 'androidx.browser:browser:1.4.0'
 
