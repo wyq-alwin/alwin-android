@@ -1,17 +1,19 @@
 package com.alwin.util
 
 import android.app.Application
+import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
-import android.os.Handler
-import android.os.Looper
 import android.util.TypedValue
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.FragmentActivity
-import com.alwin.App
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -61,9 +63,13 @@ object SystemUtil {
 
     /** Long时间戳转日期字符串 */
     fun long2String(timeStamp: Long): String {
-        val date =  Date(timeStamp);
-        val sdf =  SimpleDateFormat("yyyy-MM-dd HH:mm");
+        val date = Date(timeStamp);
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm");
         return sdf.format(date);
+    }
+
+    fun showToast(text: String) {
+        Toast.makeText(application, text, Toast.LENGTH_LONG).show()
     }
 }
 
@@ -76,3 +82,5 @@ val Int.sp2px
         this.toFloat(),
         Resources.getSystem().displayMetrics
     )
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

@@ -59,12 +59,11 @@
         </activity>
 
         <activity android:name="com.alwin.webview.WebViewDemoActivity" />
+        <activity android:name="com.alwin.SplashAdShowActivity" />
 
 
         <activity
-            android:name="com.alwin.login.LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+            android:name="com.alwin.login.LoginActivity"/>
 
         <uses-library
             android:name="org.apache.http.legacy"

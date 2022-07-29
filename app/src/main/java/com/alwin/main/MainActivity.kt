@@ -1,5 +1,6 @@
 package com.alwin.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -36,15 +37,10 @@ class MainActivity : AppCompatActivity() {
             it.layoutParams = params
         }
 
+        // startActivity(Intent(this, Main2Activity::class.java))
     }
 
-    override fun onResume() {
-        super.onResume()
-        // toolbar.title = "apt"
-        // homeItem.setText(R.string.me)
-    }
-
-    private fun setClickEvents(){
+    private fun setClickEvents() {
         binding.home.setOnClickListener {
             binding.pager.currentItem = HOME_INDEX
         }
@@ -55,5 +51,4 @@ class MainActivity : AppCompatActivity() {
             binding.pager.currentItem = ME_INDEX
         }
     }
-
 }

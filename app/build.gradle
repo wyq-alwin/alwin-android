@@ -45,6 +45,8 @@ android {
 }
 
 dependencies {
+    api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -78,7 +80,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
-    
+
     //加载webview
     implementation 'com.tencent.tbs:tbssdk:44136'
     debugImplementation 'com.github.chuckerteam.chucker:library:3.5.2'
@@ -99,45 +101,7 @@ dependencies {
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 
-//    implementation project(path: ':lib')
-//    kapt project(path: ':lib-processor')
-
     api 'androidx.browser:browser:1.4.0'
 
-//    //Anythink (Necessary)
-//    api "com.anythink.sdk:core:5.9.62"
-//    api "com.anythink.sdk:nativead:5.9.62"
-//    api "com.anythink.sdk:banner:5.9.62"
-//    api "com.anythink.sdk:interstitial:5.9.62"
-//    api "com.anythink.sdk:rewardedvideo:5.9.62"
-//    api "com.anythink.sdk:splash:5.9.62"
-//
-//    //Androidx (Necessary)
-//    api "androidx.appcompat:appcompat:1.4.2"
-//
-//    //Huawei
-//    api "com.anythink.sdk:adapter-huawei-nonchina:5.9.62"
-//    api "com.huawei.hms:ads:3.4.54.300"
-//
-//    //Facebook
-//    api "com.anythink.sdk:adapter-facebook:5.9.62"
-//    api "com.facebook.android:audience-network-sdk:6.10.0"
-//    api "androidx.annotation:annotation:1.4.0"
-//
-//    //Admob
-//    api "com.anythink.sdk:adapter-admob:5.9.62"
-//    api "com.google.android.gms:play-services-ads:21.0.0"
-//
-//    //Mintegral
-//    api "com.anythink.sdk:adapter-mintegral-nonchina:5.9.62"
-//    api "com.mbridge.msdk.oversea:reward:16.1.11"
-//    api "com.mbridge.msdk.oversea:newinterstitial:16.1.11"
-//    api "com.mbridge.msdk.oversea:mbnative:16.1.11"
-//    api "com.mbridge.msdk.oversea:interstitial:16.1.11"
-//    api "com.mbridge.msdk.oversea:mbsplash:16.1.11"
-//    api "com.mbridge.msdk.oversea:mbnativeadvanced:16.1.11"
-//    api "com.mbridge.msdk.oversea:mbbanner:16.1.11"
-//    api "com.mbridge.msdk.oversea:mbbid:16.1.11"
-//    api "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 }
-
