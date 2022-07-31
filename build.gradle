@@ -9,20 +9,6 @@ buildscript {
         flatDir {
             dirs 'libs'
         }
-        //Anythink(Core)
-        maven {
-            url "https://anythink.jfrog.io/artifactory/android_sdk"
-        }
-
-        //Huawei
-        maven {
-            url "https://developer.huawei.com/repo/"
-        }
-
-        //Mintegral
-        maven {
-            url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'

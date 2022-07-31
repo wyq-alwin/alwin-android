@@ -1,15 +1,14 @@
 package com.alwin.widget
 
 import android.content.Intent
-import android.net.Uri
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.alwin.model.BannerModel
+import com.alwin.util.dp2px
 import com.alwin.webview.WebActivity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
+import com.facebook.drawee.generic.RoundingParams
+import com.facebook.drawee.view.SimpleDraweeView
 import com.youth.banner.adapter.BannerAdapter
 
 /**
@@ -17,17 +16,15 @@ import com.youth.banner.adapter.BannerAdapter
  */
 class ImageAdapter(datas: List<BannerModel> = emptyList()) :
     BannerAdapter<BannerModel, ImageAdapter.BannerViewHolder>(datas) {
-    //创建ViewHolder，可以用viewType这个字段来区分不同的ViewHolder
     override fun onCreateHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
-        val imageView = ImageView(parent.context)
-        //注意，必须设置为match_parent，这个是viewpager2强制要求的
-        imageView.setLayoutParams(
-            ViewGroup.LayoutParams(
+        val imageView = SimpleDraweeView(parent.context).apply {
+            //注意，必须设置为match_parent，这个是viewpager2强制要求的
+            layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-        )
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP)
+            scaleType = ImageView.ScaleType.CENTER_CROP
+        }
         return BannerViewHolder(imageView)
     }
 
@@ -40,14 +37,13 @@ class ImageAdapter(datas: List<BannerModel> = emptyList()) :
         holder.bind(data)
     }
 
-    class BannerViewHolder(private val imageView: ImageView) : RecyclerView.ViewHolder(imageView) {
-        fun bind(data: BannerModel){
-            imageView.setImageURI(Uri.parse(data.imagePath))
-            //图片加载自己实现
-            Glide.with(itemView)
-                .load(data.imagePath)
-                .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
-                .into(imageView)
+    class BannerViewHolder(private val imageView: SimpleDraweeView) :
+        RecyclerView.ViewHolder(imageView) {
+        fun bind(data: BannerModel) {
+            val roundingParams = RoundingParams.fromCornersRadius(8.dp2px.toFloat())
+            imageView.hierarchy.roundingParams = roundingParams
+            imageView.setImageURI(data.imagePath)
+
             imageView.setOnClickListener {
                 val intent = Intent().apply {
                     action = "android.intent.action.VIEW"
