@@ -1,8 +1,9 @@
 package com.alwin.login
 
-import android.content.Context
 import android.os.Bundle
+import android.telephony.TelephonyManager
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -11,8 +12,6 @@ import androidx.lifecycle.lifecycleScope
 import com.alwin.android.databinding.ActivityLoginBinding
 import com.alwin.login.viewmodel.LoginViewModel
 import com.alwin.util.dataStore
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
 class LoginActivity : FragmentActivity() {
@@ -20,10 +19,6 @@ class LoginActivity : FragmentActivity() {
     private val loginViewModel: LoginViewModel by viewModels()
 
     private val USER_NAME = stringPreferencesKey("username")
-    val usernameFlow: Flow<String> = this.dataStore.data.map { preferences ->
-        // No type safety.
-        preferences[USER_NAME] ?: ""
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +62,7 @@ class LoginActivity : FragmentActivity() {
         }
     }
 
-    suspend fun saveUsername( username: String) {
+    suspend fun saveUsername(username: String) {
         dataStore.edit { settings ->
             settings[USER_NAME] = username
         }
