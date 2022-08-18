@@ -1,9 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-//    id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+//    id 'com.hencoder'
 }
+
+//hencoder{
+//    name 'Alwin333'
+//}
 
 android {
     compileSdk 32
@@ -28,9 +32,10 @@ android {
                 'proguard-rules.pro'
         }
         internal{
-
+            initWith debug
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -48,7 +53,7 @@ dependencies {
     api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
 
     implementation 'androidx.core:core-ktx:1.8.0'
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -71,17 +76,17 @@ dependencies {
     implementation("androidx.paging:paging-runtime:$paging_version")
     testImplementation("androidx.paging:paging-common:$paging_version")
 
-    implementation "androidx.activity:activity-ktx:1.5.0"
-    implementation "androidx.fragment:fragment-ktx:1.5.0"
+    implementation "androidx.activity:activity-ktx:1.5.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
 
     implementation 'io.github.youth5201314:banner:2.2.2'
 
     implementation 'com.github.bumptech.glide:glide:4.13.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+    kapt 'com.github.bumptech.glide:compiler:4.13.0'
 
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
 
-    //加载webview
+    //webview
     implementation 'com.tencent.tbs:tbssdk:44136'
     debugImplementation 'com.github.chuckerteam.chucker:library:3.5.2'
     releaseImplementation 'com.github.chuckerteam.chucker:library-no-op:3.5.2'
@@ -94,14 +99,8 @@ dependencies {
     implementation 'com.facebook.fresco:webpsupport:2.6.0'
     // For WebP support, without animations
     implementation 'com.facebook.fresco:webpsupport:2.6.0'
-//    // Provide the Android support library (you might already have this or a similar dependency)
-//    implementation 'com.android.support:support-core-utils:24.2.1'
-
-    compileOnly 'com.android.tools.build:gradle:4.1.0'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
-
     api 'androidx.browser:browser:1.4.0'
-
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 }

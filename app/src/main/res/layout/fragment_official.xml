@@ -3,10 +3,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.alwin.hencoder.touch.ScalableImageView
+    <com.alwin.hencoder.touch.TwoPager
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center" />
+        android:layout_gravity="center">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/purple_200" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/teal_200" />
+    </com.alwin.hencoder.touch.TwoPager>
 
 </FrameLayout>

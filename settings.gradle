@@ -11,7 +11,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter()
-        maven { url 'https://nexus.bilibili.co/content/groups/public/' }
+//        maven { url 'https://nexus.bilibili.co/content/groups/public/' }
     }
 }
 rootProject.name = "alwin-android"

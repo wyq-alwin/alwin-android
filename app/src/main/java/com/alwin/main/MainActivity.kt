@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // tel.allCellInfo
         // LocationManager.KEY_LOCATIONS
         // println(tel.networkCountryIso)
-
+        // drawBadge()
     }
 
     private fun setClickEvents() {
@@ -63,4 +63,5 @@ class MainActivity : AppCompatActivity() {
             binding.pager.currentItem = ME_INDEX
         }
     }
+
 }
