@@ -4,16 +4,15 @@ object AccountUtils {
 
     private var username = ""
 
-    fun isLogin(): Boolean {
+    suspend fun isLogin(): Boolean {
+        getUserName()
         return username.isNotEmpty()
     }
 
-    fun getUserName(): String {
+    suspend fun getUserName(): String {
+        if (username.isEmpty()) {
+            username = readUsername()
+        }
         return username
     }
-
-    fun setUserName(){
-
-    }
-
 }

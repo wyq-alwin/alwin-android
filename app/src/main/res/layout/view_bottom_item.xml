@@ -23,5 +23,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="2dp"
         android:textSize="13sp"
+        android:textColor="@color/text_color"
         tools:text="home" />
 </merge>

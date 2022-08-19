@@ -2,12 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-//    id 'com.hencoder'
 }
-
-//hencoder{
-//    name 'Alwin333'
-//}
 
 android {
     compileSdk 32
@@ -44,7 +39,6 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-//        dataBinding true
         viewBinding true
     }
 }

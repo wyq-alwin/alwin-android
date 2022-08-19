@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import com.alwin.android.databinding.ItemHomeArticleBinding
 import com.alwin.home.viewholder.ArticleViewHolder
 import com.alwin.model.Article

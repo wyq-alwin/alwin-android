@@ -12,13 +12,12 @@
         android:elevation="0dp"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/home" />
+        app:title="@string/app_name" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_layout"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 

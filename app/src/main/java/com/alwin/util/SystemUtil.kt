@@ -1,7 +1,6 @@
 package com.alwin.util
 
 import android.app.Application
-import android.content.Context
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
@@ -10,9 +9,6 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.FragmentActivity
 import java.text.SimpleDateFormat
 import java.util.*
@@ -83,4 +79,3 @@ val Int.sp2px
         Resources.getSystem().displayMetrics
     )
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")

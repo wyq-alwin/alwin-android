@@ -1,54 +1,41 @@
 package com.alwin.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alwin.android.R
 import com.alwin.android.databinding.FragmentHomeFlowBinding
 import com.alwin.home.viewmodel.HomeFlowViewModel
+import com.alwin.util.binding
 import com.alwin.util.dp2px
 import com.alwin.widget.ImageAdapter
 import com.alwin.widget.SpacesItemDecoration
 import com.youth.banner.indicator.CircleIndicator
 import kotlinx.coroutines.flow.collectLatest
 
-class HomeFlowFragment : Fragment() {
+class HomeFlowFragment : Fragment(R.layout.fragment_home_flow) {
 
-    private var binding: FragmentHomeFlowBinding? = null
-
+    private val binding: FragmentHomeFlowBinding by binding()
     private val homeFlowViewModel: HomeFlowViewModel by activityViewModels()
-
     private val homeFlowAdapter = HomeArticleAdapter()
     private val bannerAdapter = ImageAdapter()
-    private fun binding() = binding!!
     var loading = false
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeFlowBinding.inflate(inflater, container, false)
-        return binding!!.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding().banner.setAdapter(bannerAdapter)
+        binding.banner.setAdapter(bannerAdapter)
             .addBannerLifecycleObserver(this).indicator = CircleIndicator(context)
-        binding().recyclerview.apply {
+        binding.recyclerview.apply {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(SpacesItemDecoration(4.dp2px))
             adapter = homeFlowAdapter
             isNestedScrollingEnabled = false
-            focusable = 0
         }
-        binding().refreshLayout.apply {
+        binding.refreshLayout.apply {
             isRefreshing = true
             setColorSchemeResources(
                 android.R.color.holo_blue_light,
@@ -91,10 +78,5 @@ class HomeFlowFragment : Fragment() {
         homeFlowViewModel.bannerModel.observe(viewLifecycleOwner) {
             bannerAdapter.setDatas(it)
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding = null
     }
 }
