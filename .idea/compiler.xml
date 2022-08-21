@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="alwin-android.app" target="11" />
+      <module name="alwin-android.buildSrc" target="11" />
+      <module name="alwin-android.buildSrc.main" target="11" />
+      <module name="alwin-android.buildSrc.test" target="11" />
+      <module name="alwin-android.lib" target="11" />
+      <module name="alwin-android.lib-refection" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
