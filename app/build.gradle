@@ -97,4 +97,6 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
     api 'androidx.browser:browser:1.4.0'
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+    // cookie
+    api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 }

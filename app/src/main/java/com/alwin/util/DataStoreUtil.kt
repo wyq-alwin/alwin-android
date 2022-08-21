@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.alwin.login.viewmodel.username
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+val username = stringPreferencesKey("username")
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 suspend fun writeUsername(name: String) {

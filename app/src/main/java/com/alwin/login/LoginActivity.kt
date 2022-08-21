@@ -5,7 +5,6 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
 import com.alwin.android.databinding.ActivityLoginBinding
-import com.alwin.login.viewmodel.LoginViewModel
 import com.alwin.util.binding
 import kotlinx.coroutines.launch
 
