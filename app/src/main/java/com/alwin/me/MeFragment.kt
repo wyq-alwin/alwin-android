@@ -61,24 +61,24 @@ class MeFragment : Fragment(R.layout.fragment_me) {
             }
         }
         viewModel.isLogin.observe(viewLifecycleOwner) { isLogin ->
-            binding.text.let {
-                if (isLogin) {
-                    lifecycleScope.launch {
-                        it.text = "用户名: ${AccountUtils.getUserName()}"
-                    }
-                    it.isEnabled = false
-                    it.isClickable = false
-                } else {
-                    it.text = "去登陆"
-                    it.setOnClickListener {
-                        context?.startActivity(Intent(context, LoginActivity::class.java))
+            if (isLogin) {
+                lifecycleScope.launch {
+                    binding.text.apply {
+                        text = "用户名: ${AccountUtils.getUserName()}"
+                        isEnabled = false
+                        isClickable = false
                     }
                 }
-            }
-        }
-        lifecycleScope.launch {
-            viewModel.articleFlow.collectLatest {
-                followAdapter.submitData(it)
+                lifecycleScope.launch {
+                    viewModel.articleFlow.collectLatest { data ->
+                        followAdapter.submitData(data)
+                    }
+                }
+            } else {
+                binding.text.text = "去登陆"
+                binding.text.setOnClickListener {
+                    context?.startActivity(Intent(context, LoginActivity::class.java))
+                }
             }
         }
     }

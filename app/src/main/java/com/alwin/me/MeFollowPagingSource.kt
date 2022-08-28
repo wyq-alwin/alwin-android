@@ -13,8 +13,7 @@ class MeFollowPagingSource(private val meApi: MeApi) :
             val pageNum = params.key ?: 0
             val response = meApi.getFollowArticles(pageNum).data
             val preKey = if (pageNum > 1) pageNum.minus(1) else null
-            // todo 一直在请求网络？？？
-            val nextKey = if (response.hasMore() && pageNum < 5) {
+            val nextKey = if (response.hasMore()) {
                 pageNum.plus(1)
             } else {
                 null

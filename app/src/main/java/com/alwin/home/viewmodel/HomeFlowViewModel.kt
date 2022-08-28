@@ -28,7 +28,7 @@ class HomeFlowViewModel : ViewModel() {
 
     val articleFlow by lazy {
         Pager(
-            config = PagingConfig(pageSize = 10, prefetchDistance = 5),
+            config = PagingConfig(pageSize = 20, prefetchDistance = 5),
             pagingSourceFactory = { HomeArticlePagingSource(homeApi) }
         ).flow.cachedIn(viewModelScope)
     }

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+//    id 'com.alibaba.arouter'
 }
 
 android {
@@ -18,6 +19,12 @@ android {
         applicationIdSuffix 'alwin'
         versionNameSuffix 'alwin'
         signingConfig signingConfigs.debug
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
     }
 
     buildTypes {
@@ -26,7 +33,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                 'proguard-rules.pro'
         }
-        internal{
+        internal {
             initWith debug
         }
     }
@@ -44,7 +51,7 @@ android {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
@@ -99,4 +106,9 @@ dependencies {
     implementation "androidx.datastore:datastore-preferences:1.0.0"
     // cookie
     api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    // recyclerview框架
+    //    implementation 'com.github.liangjingkanji:BRV:1.3.80'
+    // ARouter
+//    implementation 'com.alibaba:arouter-api:1.5.2'
+//    kapt 'com.alibaba:arouter-compiler:1.5.2'
 }

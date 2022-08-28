@@ -7,7 +7,7 @@ data class Article(
     val canEdit: Boolean = false,
     val chapterId: Long = 0L,
     val chapterName: String = "",
-    val collect: Boolean = false,
+    var collect: Boolean = true,
     val courseId: Long = 0L,
     val desc: String = "",
     val descMd: String = "",

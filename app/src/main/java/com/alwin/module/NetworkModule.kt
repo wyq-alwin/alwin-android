@@ -1,5 +1,6 @@
 package com.alwin.module
 
+import com.alwin.api.CommonApi
 import com.alwin.api.HomeApi
 import com.alwin.api.MeApi
 import com.alwin.api.OfficialApi
@@ -8,9 +9,6 @@ import com.alwin.util.SystemUtil
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import okhttp3.Cookie
-import okhttp3.CookieJar
-import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -46,5 +44,9 @@ object NetWorkModule {
 
     fun provideOfficialApi(): OfficialApi {
         return retrofit.create(OfficialApi::class.java)
+    }
+
+    fun provideCommonApi(): CommonApi {
+        return retrofit.create(CommonApi::class.java)
     }
 }

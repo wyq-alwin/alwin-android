@@ -24,10 +24,4 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             tab.text = "${titles[position]}"
         }.attach()
     }
-
-    private val changeCallback = object : ViewPager2.OnPageChangeCallback() {
-        override fun onPageSelected(position: Int) {
-            //可以来设置选中时tab的大小
-        }
-    }
 }

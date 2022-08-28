@@ -30,5 +30,8 @@ interface HomeApi {
      * 每日一问列表数据
      */
     @GET("wenda/list/{page}/json")
-    fun getAskData(@Path("page") page: Int): Call<ApiResponse<PagerResponse<MutableList<Article>>>>
+    fun getAskData(
+        @Path("page") page: Int,
+        @Query("page_size") pageSize: Int = 50
+    ): Call<ApiResponse<PagerResponse<MutableList<Article>>>>
 }

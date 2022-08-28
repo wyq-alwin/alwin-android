@@ -12,9 +12,8 @@ class HomeArticlePagingSource(private val homeApi: HomeApi) :
         try {
             val pageNum = params.key ?: 0
             val response = homeApi.getHomeArticles(pageNum).data
-            val preKey = if (pageNum > 1) pageNum.minus(1) else null
-            // todo 一直在请求网络？？？
-            val nextKey = if (response.hasMore() && pageNum < 5) {
+            val preKey = if (pageNum > 0) pageNum.minus(1) else null
+            val nextKey = if (response.hasMore()) {
                 pageNum.plus(1)
             } else {
                null
