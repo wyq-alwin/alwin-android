@@ -81,6 +81,7 @@ class MeFragment : Fragment(R.layout.fragment_me) {
                 }
             }
         }
+        lifecycleScope
     }
 
     override fun onResume() {

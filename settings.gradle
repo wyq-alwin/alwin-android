@@ -9,6 +9,7 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven { url 'https://www.jitpack.io' }
+        maven { url "https://maven.aliyun.com/repository/public" }
         google()
         mavenCentral()
         jcenter()
@@ -20,3 +21,4 @@ include ':lib-refection'
 include ':lib'
 include ':lib-processor'
 include ':lib-annotation'
+include ':loadplugin'

@@ -13,13 +13,11 @@ import com.alwin.model.Article
 import com.alwin.model.BannerModel
 import com.alwin.model.PagerResponse
 import com.alwin.module.NetWorkModule
-import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import javax.inject.Inject
 
 class HomeFlowViewModel : ViewModel() {
     private val homeApi: HomeApi = NetWorkModule.provideHomeApi()

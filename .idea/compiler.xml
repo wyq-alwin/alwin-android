@@ -8,6 +8,7 @@
       <module name="alwin-android.buildSrc.test" target="11" />
       <module name="alwin-android.lib" target="11" />
       <module name="alwin-android.lib-refection" target="11" />
+      <module name="alwin-android.loadplugin" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

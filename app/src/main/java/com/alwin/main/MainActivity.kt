@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
             )
             it.layoutParams = params
         }
+
+        binding.pager.currentItem = 1
     }
 
     private fun setClickEvents() {

@@ -10,7 +10,7 @@ interface CommonApi {
 
     /**
      * 收藏文章
-     * @param id1没有用处,只用来防止报错：Form-encoded method must contain at least one @Field
+     * @param id1 没有用处,只用来防止报错：Form-encoded method must contain at least one @Field
      */
     @FormUrlEncoded
     @POST("lg/collect/{id}/json")

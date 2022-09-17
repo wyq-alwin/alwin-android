@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/lib-annotation" />
             <option value="$PROJECT_DIR$/lib-processor" />
             <option value="$PROJECT_DIR$/lib-refection" />
+            <option value="$PROJECT_DIR$/loadplugin" />
           </set>
         </option>
       </GradleProjectSettings>
