@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * 带生命周期的viewholder
  */
-open class LifecycleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), LifecycleOwner {
+open class LifecycleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+    LifecycleOwner {
+
+    private val lifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
     init {
         itemView.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
@@ -26,7 +29,9 @@ open class LifecycleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         })
     }
 
-    private val lifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
+    override fun getLifecycle(): Lifecycle {
+        return lifecycleRegistry
+    }
 
     fun onCreate() {
         lifecycleRegistry.currentState = Lifecycle.State.CREATED
@@ -35,9 +40,4 @@ open class LifecycleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
     fun onDestroy() {
         lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
-
-    override fun getLifecycle(): Lifecycle {
-        return lifecycleRegistry
-    }
-
 }

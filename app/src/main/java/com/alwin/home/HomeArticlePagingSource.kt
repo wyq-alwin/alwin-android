@@ -11,7 +11,7 @@ class HomeArticlePagingSource(private val homeApi: HomeApi) :
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         try {
             val pageNum = params.key ?: 0
-            val response = homeApi.getHomeArticles(pageNum).data
+            val response = homeApi.getHomeArticles(page = pageNum).data
             val preKey = if (pageNum > 0) pageNum.minus(1) else null
             val nextKey = if (response.hasMore()) {
                 pageNum.plus(1)

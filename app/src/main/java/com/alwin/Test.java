@@ -1,10 +1,11 @@
 package com.alwin;
 
-interface T {
-    void test1(String s);
+import java.util.HashSet;
+
+public final class Test {
+
+    public static void main() {
+
+    }
 }
 
-public class Test {
-
-    String name;
-}

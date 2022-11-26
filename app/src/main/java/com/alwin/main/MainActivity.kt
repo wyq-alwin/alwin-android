@@ -1,21 +1,40 @@
 package com.alwin.main
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.alwin.android.databinding.ActivityMainBinding
 import com.alwin.util.SystemUtil
 import com.alwin.util.binding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Handler.Callback {
 
     companion object {
         const val HOME_INDEX = 0
         const val OFFICIAL_INDEX = 1
         const val ME_INDEX = 2
+        const val MSG = 1
     }
 
     private val binding: ActivityMainBinding by binding()
+    private var time = 0
+    private val handler = Handler(Looper.getMainLooper(), this)
+
+    override fun handleMessage(msg: Message): Boolean {
+        if (msg.what == MSG) {
+            handler.removeMessages(MSG)
+            println("@@@@" + time)
+            time++
+            if (time < 20) {
+                // handler.sendEmptyMessage(MSG)
+                handler.sendMessage(Message.obtain().apply { what = MSG })
+            }
+        }
+        return true
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +54,13 @@ class MainActivity : AppCompatActivity() {
             )
             it.layoutParams = params
         }
-
         binding.pager.currentItem = 1
+
+        Looper.myLooper()?.queue?.addIdleHandler {
+            return@addIdleHandler false
+        }
+
+        binding.root.post {  }
     }
 
     private fun setClickEvents() {
@@ -50,5 +74,5 @@ class MainActivity : AppCompatActivity() {
             binding.pager.currentItem = ME_INDEX
         }
     }
-
 }
+

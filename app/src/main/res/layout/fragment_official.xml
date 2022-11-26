@@ -1,37 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_200"
     android:orientation="vertical">
-    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
-        android:id="@+id/video_item_player"
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
-
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
+        android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/textview2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:id="@+id/textview3"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:id="@+id/textview4"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp" />
 </LinearLayout>

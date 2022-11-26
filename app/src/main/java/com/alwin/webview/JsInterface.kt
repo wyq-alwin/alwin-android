@@ -4,7 +4,7 @@ import android.webkit.JavascriptInterface
 import com.alwin.webview.utils.log
 import com.alwin.webview.utils.showToast
 
-class JsInterface {
+class JsInterface  {
 
     @JavascriptInterface
     fun showToastByAndroid(log: String) {

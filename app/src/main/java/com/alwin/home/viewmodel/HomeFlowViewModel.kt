@@ -13,6 +13,7 @@ import com.alwin.model.Article
 import com.alwin.model.BannerModel
 import com.alwin.model.PagerResponse
 import com.alwin.module.NetWorkModule
+import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Call
@@ -31,7 +32,7 @@ class HomeFlowViewModel : ViewModel() {
         ).flow.cachedIn(viewModelScope)
     }
 
-    suspend fun getBannerData() = withContext(Dispatchers.IO) {
+    suspend fun getBannerData() = withContext(Dispatchers.IO + CoroutineName("111")) {
         homeApi.getBannerData().enqueue(object : Callback<ApiResponse<List<BannerModel>>> {
             override fun onResponse(
                 call: Call<ApiResponse<List<BannerModel>>>,

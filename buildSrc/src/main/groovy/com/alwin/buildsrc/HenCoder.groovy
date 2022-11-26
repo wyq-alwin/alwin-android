@@ -7,7 +7,7 @@ class HenCoder implements Plugin<Project> {
 
     @Override
     void apply(Project target) {
-        def extension = target.extensions.create('hencoder',HenCoderExtension)
+        def extension = target.extensions.create('hencoder', HenCoderExtension)
 
         target.afterEvaluate {
             println "Hello ${extension.name}"

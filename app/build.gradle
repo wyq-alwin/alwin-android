@@ -2,7 +2,13 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'com.hencoder'
 //    id 'com.alibaba.arouter'
+}
+
+
+hencoder{
+    name '修改后'
 }
 
 android {
@@ -19,12 +25,6 @@ android {
         applicationIdSuffix 'alwin'
         versionNameSuffix 'alwin'
         signingConfig signingConfigs.debug
-
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [AROUTER_MODULE_NAME: project.getName()]
-//            }
-//        }
     }
 
     buildTypes {
@@ -39,8 +39,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -110,7 +110,7 @@ dependencies {
     api 'com.alibaba:fastjson:1.1.72.android'
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.7.10"
-    implementation 'com.squareup.okio:okio:3.0.0'
+    implementation 'com.squareup.okio:okio:3.2.0'
 
 
     //完整版引入
