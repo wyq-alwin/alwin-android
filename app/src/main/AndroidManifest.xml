@@ -39,6 +39,8 @@
         <activity
             android:name="com.alwin.webview.WebActivity"
             android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=".alwin_2"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
             <intent-filter>
@@ -54,10 +56,12 @@
         </activity>
 
         <activity android:name="com.alwin.webview.WebViewDemoActivity" />
-        <activity android:name="com.alwin.SplashAdShowActivity" />
 
 
-        <activity android:name="com.alwin.login.LoginActivity" />
+        <activity
+            android:name="com.alwin.login.LoginActivity"
+            android:launchMode="singleInstance"
+            android:taskAffinity=".alwin_1" />
 
         <uses-library
             android:name="org.apache.http.legacy"

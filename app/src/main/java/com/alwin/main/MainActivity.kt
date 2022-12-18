@@ -1,14 +1,18 @@
 package com.alwin.main
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.alwin.android.databinding.ActivityMainBinding
 import com.alwin.util.SystemUtil
 import com.alwin.util.binding
+import com.alwin.widget.GrayFrameLayout
 
 class MainActivity : AppCompatActivity(), Handler.Callback {
 
@@ -36,6 +40,29 @@ class MainActivity : AppCompatActivity(), Handler.Callback {
         return true
     }
 
+    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+        try {
+            if ("FrameLayout" == name) {
+                val count = attrs.attributeCount
+                repeat(count) { i ->
+                    val attributeName = attrs.getAttributeName(i);
+                    val attributeValue = attrs.getAttributeValue(i);
+                    if (attributeName.equals("id")) {
+                        val id = Integer.parseInt(attributeValue.substring(1));
+                        val idVal = resources.getResourceName(id);
+                        if ("android:id/content" == idVal) {
+                            val grayFrameLayout = GrayFrameLayout(context, attrs);
+//                            grayFrameLayout.setWindow(getWindow());
+                            return grayFrameLayout;
+                        }
+                    }
+                }
+            }
+        } catch (_: Exception) {
+        }
+        return super.onCreateView(name, context, attrs);
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -56,11 +83,25 @@ class MainActivity : AppCompatActivity(), Handler.Callback {
         }
         binding.pager.currentItem = 1
 
-        Looper.myLooper()?.queue?.addIdleHandler {
-            return@addIdleHandler false
-        }
-
-        binding.root.post {  }
+        //
+        //
+        // val textView = TextView(this).apply {
+        //     text = "window"
+        //     textSize = 18f
+        //     setTextColor(Color.BLACK)
+        //     setBackgroundColor(Color.WHITE)
+        // }
+        // val parent = WindowManager.LayoutParams(
+        //     WindowManager.LayoutParams.WRAP_CONTENT,
+        //     WindowManager.LayoutParams.WRAP_CONTENT, 0, 0, PixelFormat.TRANSPARENT
+        // )
+        // parent.type = WindowManager.LayoutParams.TYPE_APPLICATION
+        // parent.flags =
+        //     WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        // parent.gravity = Gravity.END or Gravity.BOTTOM
+        // parent.y = 500
+        // parent.x = 100
+        // windowManager.addView(textView, parent)
     }
 
     private fun setClickEvents() {

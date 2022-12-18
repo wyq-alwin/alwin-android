@@ -8,9 +8,4 @@
     <declare-styleable name="MaterialEditText">
         <attr name="useFloatingLabel" format="boolean"/>
     </declare-styleable>
-
-    <declare-styleable name="BangumiPayTipTextView">
-        <attr name="pay_tip_desc" format="string" />
-        <attr name="pay_tip_icon" format="reference" />
-    </declare-styleable>
 </resources>

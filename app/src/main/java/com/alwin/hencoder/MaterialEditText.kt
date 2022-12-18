@@ -5,69 +5,56 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import androidx.appcompat.widget.AppCompatEditText
 import com.alwin.android.R
 import com.alwin.util.dp2px
 
-private val TEXT_SIZE = 12.dp2px
-private val TEXT_MARGIN = 8.dp2px
-private val HORIZONTAL_OFFSET = 5.dp2px
-private val VERTICAL_OFFSET = 24.dp2px
-private val EXTRA_VERTICAL_OFFSET = 16.dp2px
-
-class MaterialEditText(context: Context, attributeSet: AttributeSet) :
-    AppCompatEditText(context, attributeSet) {
-
-    private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private val animator by lazy(LazyThreadSafetyMode.NONE) {
-        ObjectAnimator.ofFloat(this, "floatingLabelFraction", 1f, 0f)
+class MaterialEditText(context: Context, attrs: AttributeSet?) : AppCompatEditText(context, attrs) {
+    private val TEXT_SIZE = 12.dp2px
+    private val TEXT_MARGIN = 4.dp2px
+    private val HORIZONTAL_OFFSET = 5.dp2px
+    private var VERTICAL_OFFSET = 20.dp2px
+    private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        textSize = TEXT_SIZE.toFloat()
     }
-    private var floatingLabelShown = false
-    private var floatingLabelFraction = 0f
+
+    private var useFloatingLabel = true
         set(value) {
-            field = value
-            invalidate()
-        }
-    var useFloatingLabel = false
-        set(value) {
-            if (field != value) {
+            if (value != field) {
                 field = value
-                if (field) {
+                if (value) {
                     setPadding(
                         paddingLeft,
-                        paddingTop + TEXT_SIZE + TEXT_MARGIN,
+                        paddingTop + TEXT_MARGIN + TEXT_SIZE,
                         paddingRight,
                         paddingBottom
                     )
                 } else {
                     setPadding(
                         paddingLeft,
-                        paddingTop - TEXT_SIZE - TEXT_MARGIN,
+                        paddingTop - TEXT_MARGIN - TEXT_SIZE,
                         paddingRight,
                         paddingBottom
                     )
                 }
             }
         }
+    private var floatShown = false
+    var floatFraction = 0f
+        set(value) {
+            field = value
+            invalidate()
+        }
+    private val animator = ObjectAnimator.ofFloat(this, "floatFraction", 1f, 0f).setDuration(200)
 
     init {
-        paint.textSize = TEXT_SIZE.toFloat()
-        for (i in 0 until attributeSet.attributeCount) {
-            Log.d(
-                "MaterialEditText",
-                "${attributeSet.getAttributeName(i)}: ${attributeSet.getAttributeValue(i)}"
-            )
-        }
-        // val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.MaterialEditText)
-        // useFloatingLabel =
-        //     typedArray.getBoolean(R.styleable.MaterialEditText_useFloatingLabel, true)
-        // typedArray.recycle()
-        val typedArray =
-            context.obtainStyledAttributes(attributeSet, intArrayOf(R.attr.useFloatingLabel))
-        useFloatingLabel =
-            typedArray.getBoolean(0, true)
-        typedArray.recycle()
+        setPadding(paddingLeft, paddingTop + TEXT_MARGIN + TEXT_SIZE, paddingRight, paddingBottom)
+        // val arr = context.obtainStyledAttributes(attrs, R.styleable.MaterialEditText)
+        // useFloatingLabel = arr.getBoolean(R.styleable.MaterialEditText_useFloatingLabel, true)
+        // arr.recycle()
+        val arr = context.obtainStyledAttributes(attrs, intArrayOf(R.attr.useFloatingLabel))
+        useFloatingLabel = arr.getBoolean(0, true)
+        arr.recycle()
     }
 
     override fun onTextChanged(
@@ -76,14 +63,11 @@ class MaterialEditText(context: Context, attributeSet: AttributeSet) :
         lengthBefore: Int,
         lengthAfter: Int
     ) {
-        if (!useFloatingLabel) {
-            return
-        }
-        if (floatingLabelShown && text.isNullOrEmpty()) {
-            floatingLabelShown = false
+        if (floatShown && text.isNullOrEmpty()) {
+            floatShown = false
             animator.start()
-        } else if (!floatingLabelShown && !text.isNullOrEmpty()) {
-            floatingLabelShown = true
+        } else if (!floatShown && !text.isNullOrEmpty()) {
+            floatShown = true
             animator.reverse()
         }
     }
@@ -93,11 +77,12 @@ class MaterialEditText(context: Context, attributeSet: AttributeSet) :
         if (!useFloatingLabel) {
             return
         }
-        paint.alpha = (floatingLabelFraction * 0xff).toInt()
+        paint.alpha = (floatFraction * 0xff).toInt()
+        val ver = VERTICAL_OFFSET.toFloat() + 20.dp2px * (1 - floatFraction)
         canvas.drawText(
             hint.toString(),
             HORIZONTAL_OFFSET.toFloat(),
-            VERTICAL_OFFSET.toFloat() + EXTRA_VERTICAL_OFFSET * (1 - floatingLabelFraction),
+            ver.toFloat(),
             paint
         )
     }

@@ -89,8 +89,6 @@ dependencies {
 
     //webview
     implementation 'com.tencent.tbs:tbssdk:44136'
-    debugImplementation 'com.github.chuckerteam.chucker:library:3.5.2'
-    releaseImplementation 'com.github.chuckerteam.chucker:library-no-op:3.5.2'
 
     implementation 'com.facebook.fresco:fresco:2.6.0'
     // For animated GIF support
